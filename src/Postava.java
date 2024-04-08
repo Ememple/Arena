@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Postava{
     public enum Trida{
         VALECNIK,
@@ -25,6 +27,16 @@ public class Postava{
         this.inteligence = inteligence;
         this.odolnost = odolnost;
         this.obratnost = obratnost;
+    }
+    public Trida vyberTridy(){
+        System.out.println("Vyberte třídu:\n 1.)Válečník: +3 síla \n 2.)Mág: +3 inteligence\n 3.)Průzkumník: +3 obratnost ");
+        Scanner scanner = new Scanner(System.in);
+        switch (scanner.nextInt()){
+            case 1: return Trida.VALECNIK;
+            case 2: return Trida.MAG;
+            case 3: return Trida.PRUZKUMNIK;
+        }
+        return Trida.VALECNIK;
     }
 
     public String getJmeno() {
@@ -91,6 +103,13 @@ public class Postava{
         this.obratnost = obratnost;
     }
 
+    public Trida getTrida() {
+        return trida;
+    }
+
+    public void setTrida(Trida trida) {
+        this.trida = trida;
+    }
     //člověk +3% síla, +3% inteligence, +4% obratnost
     //elf +6% inteligence, +4% obratnost
     //trpaslík +7% síla, +3% obratnost
